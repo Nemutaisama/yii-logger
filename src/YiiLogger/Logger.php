@@ -23,8 +23,16 @@ class Logger extends FailLogger
 
     public function __construct(array $config = [])
     {
-        $factory = new LoggerFactory();
-        $this->logger = $factory->createLogger('test', $config);
+        $loggerConfig = $config['logger'];
+        if (is_array($loggerConfig) && isset($loggerConfig['class'])) {
+            $loggerComponent = Yii::createObject($loggerConfig);
+        } elseif (is_string($loggerConfig)) {
+            $loggerComponent = Yii::createObject($loggerConfig);
+            //$loggerComponent = Yii::$app->get($loggerConfig);
+        } else {
+            throw new \Exception('Cant initialize logger component');
+        }
+        $this->logger = $loggerComponent->getLogger();
         $this->init();
         Yii::setLogger($this);
     }

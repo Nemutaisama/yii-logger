@@ -1,0 +1,16 @@
+{
+    "name": "nemutaisama/yii-logger",
+    "description": "Proxy between Yii default log and PSR3 Loggers",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Andrey Ageev",
+            "email": "nemutaisama@gmail.com"
+        }
+    ],
+    "require": {
+        "psr/log": "^1.0",
+        "yiisoft/yii2": "2.0.11.2"
+    }
+}
