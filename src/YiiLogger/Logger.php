@@ -28,7 +28,6 @@ class Logger extends FailLogger
             $loggerComponent = Yii::createObject($loggerConfig);
         } elseif (is_string($loggerConfig)) {
             $loggerComponent = Yii::createObject($loggerConfig);
-            //$loggerComponent = Yii::$app->get($loggerConfig);
         } else {
             throw new \Exception('Cant initialize logger component');
         }
